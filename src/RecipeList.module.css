@@ -1,0 +1,49 @@
+.listWrapper {
+  display: block;
+  position: relative;
+  min-width: 100%;
+  width: 375px;
+  margin-top: 20px;
+}
+.list {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.list > div {
+  width: 375px;
+  margin: 0 auto;
+}
+
+.tile {
+  position: relative;
+  display: block;
+}
+
+.tile::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  content: " ";
+  background: linear-gradient(transparent, black);
+}
+
+.tileTitle {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1;
+  color: white;
+}
+
+.tile:hover .tileTitle {
+  text-decoration: underline;
+}

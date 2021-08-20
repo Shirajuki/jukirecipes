@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch, Link } from "react-router-dom";
+import RecipeList from "./RecipeList";
+import Recipe from "./Recipe";
+import NotFound from "./404";
+import styles from "./App.module.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className={styles.header}>
+        <Link className={styles.headerLink} to="/">
+          Jukirecipes
+        </Link>
       </header>
-    </div>
+
+      <main className={styles.main}>
+        <div className={styles.container}>
+          <Switch>
+            <Route component={RecipeList} path="/" exact />
+            <Route component={Recipe} path="/:slug" />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </main>
+
+      <footer className={styles.footer}>
+        <p>Created with Vercel + Sanity + React</p>
+      </footer>
+    </>
   );
-}
+};
 
 export default App;
