@@ -1,17 +1,15 @@
-import { Route, Switch, Link } from "react-router-dom";
-import RecipeList from "./RecipeList";
-import Recipe from "./Recipe";
-import NotFound from "./404";
+import { Route, Switch } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import RecipeList from "./components/RecipeList";
+import Recipe from "./components/Recipe";
+import NotFound from "./components/404";
 import styles from "./App.module.css";
 
 const App = () => {
   return (
     <>
-      <header className={styles.header}>
-        <Link className={styles.headerLink} to="/">
-          Jukirecipes
-        </Link>
-      </header>
+      <Header />
 
       <main className={styles.main}>
         <div className={styles.container}>
@@ -23,9 +21,7 @@ const App = () => {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <p>Created with Vercel + Sanity + React</p>
-      </footer>
+      <Footer />
     </>
   );
 };

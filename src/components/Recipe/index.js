@@ -2,14 +2,14 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useParams, Link } from "react-router-dom";
 import BlockContent from "@sanity/block-content-to-react";
-import { sanity, imageUrlBuilder } from "./sanity";
+import { sanity, imageUrlBuilder } from "../../sanity";
 import styles from "./Recipe.module.css";
 
 const query = `
   *[ _type == 'recipe' && slug.current == $slug ]
 `;
 
-function Recipe() {
+const Recipe = () => {
   // this variable is populated from `react-router` which pulls it from the URL
   const { slug } = useParams();
 
@@ -50,6 +50,6 @@ function Recipe() {
       </Link>
     </>
   );
-}
+};
 
 export default Recipe;
