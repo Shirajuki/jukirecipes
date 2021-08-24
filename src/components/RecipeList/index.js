@@ -14,7 +14,7 @@ const query = `
 const RecipeList = () => {
   // in this one line, data is fetched from sanity via the sanity client and
   // stored into application state via react-query!
-  const { data: recipes } = useQuery("madLibsList", () => sanity.fetch(query));
+  const { data: recipes } = useQuery("recipeList", () => sanity.fetch(query));
   const [searchValue, setSearchValue] = useState("");
   const [filterValues, setFilterValues] = useState([]);
 

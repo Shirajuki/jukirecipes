@@ -9,6 +9,7 @@
   min-width: 200px;
   width: 360px;
   padding: 6px 50px 6px 10px;
+  font-weight: 400;
 }
 .iconWrapper {
   position: absolute;
@@ -26,4 +27,12 @@
   left: 1px;
   width: 22px;
   height: 22px;
+}
+.primary {
+  color: #e96271;
+  fill: #e96271;
+}
+.primary > path {
+  color: #e96271;
+  fill: #e96271;
 }
