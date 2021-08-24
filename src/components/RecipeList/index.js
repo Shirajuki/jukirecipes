@@ -18,7 +18,6 @@ const RecipeList = () => {
   const [searchValue, setSearchValue] = useState("");
   const [filterValues, setFilterValues] = useState([]);
 
-  // if we don't have madLibs yet, then the data must be loading
   if (recipes) {
     recipes.push(recipes[0]);
     recipes.push(recipes[0]);
@@ -36,7 +35,11 @@ const RecipeList = () => {
         <h1>Jukirecipes</h1>
         <p>The infamous open-source recipe book.</p>
         <p>Aka my journey in mastering the kitchen.</p>
-        <SearchBar value={searchValue} setValue={setSearchValue} />
+        <SearchBar
+          value={searchValue}
+          setValue={setSearchValue}
+          style={{ margin: 20, marginTop: 25 }}
+        />
         <Button onClick={() => console.log(123)}>Let’s go cooooooook</Button>
       </div>
       <div className={styles.recipes}>
@@ -44,8 +47,8 @@ const RecipeList = () => {
           <>
             <FilterSelect values={filterValues} setValues={setFilterValues} />
             <div className={styles.list}>
-              {recipes.map(({ title, slug, image }) => (
-                <div key={slug.current}>
+              {recipes.map(({ title, slug, image }, index) => (
+                <div key={slug.current + index}>
                   <Link className={styles.tile} to={`/${slug.current}`}>
                     <img
                       alt={title}

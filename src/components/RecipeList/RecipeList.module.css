@@ -1,13 +1,14 @@
 .heroWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
+  height: calc(100vh - 60px - 200px);
+  padding-top: 1rem;
 }
 .heroLogo {
-  width: 250px;
-  height: 250px;
+  width: 180px;
+  height: 180px;
 }
 
 .listWrapper {
