@@ -45,6 +45,7 @@ const RecipeList = () => {
       <div className={styles.recipes}>
         {recipes ? (
           <>
+            <p>Filter:</p>
             <FilterSelect values={filterValues} setValues={setFilterValues} />
             <div className={styles.list}>
               {recipes.map(({ title, slug, image }, index) => (

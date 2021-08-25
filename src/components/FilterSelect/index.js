@@ -1,12 +1,16 @@
 import React from "react";
+import Filter from "../Filter";
+import styles from "./FilterSelect.module.css";
 const FilterSelect = ({ value, setValue }) => {
   return (
-    <p>
-      Filter:
-      <button></button>
-      <button></button>
-      <button></button>
-    </p>
+    <div className={styles.filterWrapper}>
+      <Filter>Pasta</Filter>
+      <Filter>Noodle</Filter>
+      <Filter>Soup</Filter>
+      <Filter>Rice</Filter>
+      <Filter>Cake</Filter>
+      <Filter>Desert</Filter>
+    </div>
   );
 };
 export default FilterSelect;
