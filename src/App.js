@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Route, Switch, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import RecipeList from "./components/RecipeList";
@@ -10,15 +10,21 @@ import styles from "./App.module.css";
 
 const App = () => {
   const [hideOnScroll, setHideOnScroll] = useState(true);
+  const location = useLocation();
+
+  // Hides header on route change
+  useEffect(() => {
+    if (location.pathname === "/") setHideOnScroll(true);
+  }, [location]);
 
   // Scrollposition hook
   useScrollPosition(
     ({ prevPos: _, currPos }) => {
       const isShow = currPos.y < -400;
-      if (isShow) setHideOnScroll(false);
+      if (isShow || location.pathname !== "/") setHideOnScroll(false);
       else setHideOnScroll(true);
     },
-    [hideOnScroll]
+    [hideOnScroll, location.pathname]
   );
   return (
     <>
