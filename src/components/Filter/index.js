@@ -1,6 +1,12 @@
 import React from "react";
 import styles from "./Filter.module.css";
-const Filter = ({ children }) => {
-  return <button className={styles.filterButton}>{children}</button>;
+const Filter = ({ selected, children }) => {
+  return (
+    <button
+      className={`${styles.filterButton} ${selected ? styles.active : ""}`}
+    >
+      {children}
+    </button>
+  );
 };
 export default Filter;

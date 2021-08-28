@@ -7,7 +7,14 @@
   border: none;
   padding: 5px 2rem;
   cursor: pointer;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #5d7cbb;
 }
 .filterButton:not(:last-of-type) {
   margin-right: 10px;
+}
+.filterButton.active {
+  background-color: #5d7cbb;
+  color: #ffffff;
 }
