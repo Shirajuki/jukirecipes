@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@n8tb1t/use-scroll-position": "^2.0.3",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^2.15.0",
     "@sanity/image-url": "^0.140.22",

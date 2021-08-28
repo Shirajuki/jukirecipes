@@ -10,6 +10,11 @@
   background-color: #f9f9f9;
   z-index: 9001;
   height: 60px;
+  transition: 0.5s all;
+}
+.header.hidden {
+  transform: translateY(-60px);
+  opacity: 0;
 }
 .headerLink {
   display: inline-block;
@@ -29,18 +34,4 @@
 .themeWrapper {
   display: flex;
   margin-bottom: 7px;
-}
-.themeButton {
-  position: relative;
-  width: 30px;
-  border: none;
-  background: rgba(0, 0, 0, 0);
-  margin-left: 15px;
-}
-.themeIcon {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  bottom: 5px;
-  left: 0;
 }

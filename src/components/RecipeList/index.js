@@ -10,7 +10,7 @@ import styles from "./RecipeList.module.css";
 const query = `
   *[ _type == 'recipe' ] { title, image, slug }
 `;
-
+const filterValueList = ["Pasta", "Noodle", "Soup", "Rice", "Desert"];
 const RecipeList = () => {
   // in this one line, data is fetched from sanity via the sanity client and
   // stored into application state via react-query!
@@ -46,7 +46,11 @@ const RecipeList = () => {
         {recipes ? (
           <>
             <h3>Filters:</h3>
-            <FilterSelect values={filterValues} setValues={setFilterValues} />
+            <FilterSelect
+              selected={filterValues}
+              setSelected={setFilterValues}
+              values={filterValueList}
+            />
             <div className={styles.list}>
               {recipes.map(({ title, slug, image }, index) => (
                 <div key={slug.current + index}>
