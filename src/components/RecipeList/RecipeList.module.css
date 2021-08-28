@@ -15,7 +15,7 @@
   display: block;
   position: relative;
   min-width: 100%;
-  width: 375px;
+  width: 300px;
   margin-top: 20px;
 }
 .recipes {
@@ -30,14 +30,15 @@
   margin-bottom: 1rem;
 }
 .recipes > .list > div {
-  width: 375px;
-  margin: 0 auto;
+  width: 300px;
+  margin: 20px;
 }
 .list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
-  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .list > div > a {
   border-radius: 20px;

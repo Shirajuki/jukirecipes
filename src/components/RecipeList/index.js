@@ -64,8 +64,8 @@ const RecipeList = () => {
                         .height(375)
                         .image(image)
                         .url()}
-                      width="375px"
-                      height="375px"
+                      width="300px"
+                      height="300px"
                     />
                     <h2 className={styles.tileTitle}>{title}</h2>
                   </Link>
