@@ -28,27 +28,42 @@ const Recipe = () => {
   // once the mad lib is loaded, we can map through the structured content to
   // find our placeholder shape. the end result is an array of these placeholders
   return (
-    <>
-      <h2 className={styles.title}>{recipe.title}</h2>
-      <img
-        className={styles.img}
-        alt={recipe.title}
-        src={imageUrlBuilder.width(425).height(425).image(recipe.image).url()}
-      />
-      <BlockContent
-        className={styles.blockContent}
-        blocks={recipe.ingredients}
-      />
-      <BlockContent
-        className={styles.blockContent}
-        blocks={recipe.instructions}
-      />
-
-      {/* this is a simple link back to the main mab libs index */}
-      <Link className={styles.button} to="/">
-        ← More Recipes
-      </Link>
-    </>
+    <div className={styles.recipeWrapper}>
+      <div className={styles.recipeInfoWrapper}>
+        <Link className={styles.button} to="/">
+          ← More Recipes
+        </Link>
+        <div className={styles.recipeInfo}>
+          <img
+            className={styles.img}
+            alt={recipe.title}
+            src={imageUrlBuilder
+              .width(320)
+              .height(320)
+              .image(recipe.image)
+              .url()}
+          />
+          <div>
+            <h1 className={styles.title}>{recipe.title}</h1>
+            <div className={styles.filterDisplay}></div>
+            <div className={styles.imageGallery}></div>
+          </div>
+        </div>
+        <div className={styles.recipeInstructions}>
+          <h2>Instructions</h2>
+          <BlockContent
+            className={styles.blockContent}
+            blocks={recipe.instructions}
+          />
+        </div>
+      </div>
+      <div className={styles.recipeIngredientsWrapper}>
+        <BlockContent
+          className={styles.blockContent}
+          blocks={recipe.ingredients}
+        />
+      </div>
+    </div>
   );
 };
 
