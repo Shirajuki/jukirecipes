@@ -5,12 +5,12 @@ import { sanity, imageUrlBuilder } from "../../sanity";
 import SearchBar from "../SearchBar";
 import Button from "../Button";
 import FilterSelect from "../FilterSelect";
-import styles from "./RecipeList.module.css";
+import styles from "./RecipeList.module.scss";
 
 const query = `
-  *[ _type == 'recipe' ] { title, image, slug }
+  *[ _type == 'recipe' ] { title, image, slug, tags }
 `;
-const filterValueList = ["Pasta", "Noodle", "Soup", "Rice", "Desert"];
+const filterValueList = ["pasta", "noodle", "soup", "rice", "desert"];
 const RecipeList = () => {
   // in this one line, data is fetched from sanity via the sanity client and
   // stored into application state via react-query!
@@ -18,11 +18,16 @@ const RecipeList = () => {
   const [searchValue, setSearchValue] = useState("");
   const [filterValues, setFilterValues] = useState([]);
 
-  if (recipes) {
-    recipes.push(recipes[0]);
-    recipes.push(recipes[0]);
-    recipes.push(recipes[0]);
-  }
+  const filteredRecipes = (recipes, filters) => {
+    if (filters.length === 0) return recipes;
+    else
+      return recipes.filter((r) => {
+        for (let i = 0; i < (r?.tags?.length ?? 0); i++) {
+          if (filters.includes(r.tags[i].toLowerCase())) return true;
+        }
+        return false;
+      });
+  };
 
   return (
     <div className={styles.listWrapper}>
@@ -52,25 +57,27 @@ const RecipeList = () => {
               values={filterValueList}
             />
             <div className={styles.list}>
-              {recipes.map(({ title, slug, image }, index) => (
-                <div key={slug.current + index}>
-                  <Link className={styles.tile} to={`/${slug.current}`}>
-                    <img
-                      alt={title}
-                      // use the sanity `imageUrlBuilder` to
-                      // generate optimized images on the fly
-                      src={imageUrlBuilder
-                        .width(375)
-                        .height(375)
-                        .image(image)
-                        .url()}
-                      width="300px"
-                      height="300px"
-                    />
-                    <h2 className={styles.tileTitle}>{title}</h2>
-                  </Link>
-                </div>
-              ))}
+              {filteredRecipes(recipes, filterValues).map(
+                ({ title, slug, image }, index) => (
+                  <div key={slug.current + index}>
+                    <Link className={styles.tile} to={`/${slug.current}`}>
+                      <img
+                        alt={title}
+                        // use the sanity `imageUrlBuilder` to
+                        // generate optimized images on the fly
+                        src={imageUrlBuilder
+                          .width(375)
+                          .height(375)
+                          .image(image)
+                          .url()}
+                        width="300px"
+                        height="300px"
+                      />
+                      <h2 className={styles.tileTitle}>{title}</h2>
+                    </Link>
+                  </div>
+                )
+              )}
             </div>
           </>
         ) : (

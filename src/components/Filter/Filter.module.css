@@ -10,6 +10,8 @@
   margin-bottom: 10px;
   font-weight: 700;
   color: #5d7cbb;
+  text-transform: capitalize;
+  transition: 0.2s all linear;
 }
 .filterButton:not(:last-of-type) {
   margin-right: 10px;

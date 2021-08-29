@@ -1,6 +1,13 @@
 .blockContent > ol {
   margin-bottom: 1rem;
 }
+.returnButton {
+  display: inline;
+  width: 55px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  padding: 5px;
+}
 
 .recipeWrapper {
   display: block;
@@ -69,7 +76,7 @@
       position: relative;
       min-height: 65px;
       &:last-of-type {
-        margin: 0;
+        margin: 0 0 1rem 0;
       }
       &::before {
         content: "Step " counter(instruction-counter);
@@ -95,4 +102,7 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  height: 100%;
+  overflow: auto;
+  max-height: 646px;
 }

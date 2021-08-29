@@ -12,7 +12,6 @@ const query = `
 `;
 
 const images = ["a", "b", "c", "d"];
-const tags = ["Noodles", "Soup"];
 const Recipe = () => {
   const [checkedIngredients, setCheckedIngredients] = useState([]);
   const { slug } = useParams();
@@ -41,8 +40,19 @@ const Recipe = () => {
   return (
     <div className={styles.recipeWrapper}>
       <div className={styles.recipeInfoWrapper}>
-        <Link className={styles.button} to="/">
-          ← More Recipes
+        <Link className={styles.returnButton} to="/">
+          <svg
+            width="39"
+            height="20"
+            viewBox="0 0 39 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.72562 7.44245H39V12.3317H9.72562V19.6657L0 9.8871L9.72562 0.108505V7.44245Z"
+              fill="#E96271"
+            />
+          </svg>
         </Link>
         <div className={styles.recipeInfo}>
           <img
@@ -59,9 +69,9 @@ const Recipe = () => {
               <h1 className={styles.title}>{recipe.title}</h1>
               <div className={styles.filterDisplay}>
                 <FilterSelect
-                  selected={tags}
+                  selected={recipe.tags}
                   setSelected={() => void 0}
-                  values={tags}
+                  values={recipe.tags}
                   readOnly={true}
                 />
               </div>
