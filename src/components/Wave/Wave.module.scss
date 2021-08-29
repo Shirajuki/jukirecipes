@@ -1,0 +1,7 @@
+.wave {
+  position: absolute;
+  z-index: 1;
+  &.reversed {
+    transform: scale(-1, 1);
+  }
+}

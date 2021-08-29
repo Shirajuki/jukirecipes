@@ -3,12 +3,15 @@ import { useQuery } from "react-query";
 import { useParams, Link } from "react-router-dom";
 import BlockContent from "@sanity/block-content-to-react";
 import { sanity, imageUrlBuilder } from "../../sanity";
-import styles from "./Recipe.module.css";
+import styles from "./Recipe.module.scss";
+import FilterSelect from "../FilterSelect";
 
 const query = `
   *[ _type == 'recipe' && slug.current == $slug ]
 `;
 
+const images = ["a", "b", "c", "d"];
+const tags = ["Noodles", "Soup"];
 const Recipe = () => {
   // this variable is populated from `react-router` which pulls it from the URL
   const { slug } = useParams();
@@ -38,15 +41,36 @@ const Recipe = () => {
             className={styles.img}
             alt={recipe.title}
             src={imageUrlBuilder
-              .width(320)
-              .height(320)
+              .width(240)
+              .height(240)
               .image(recipe.image)
               .url()}
           />
-          <div>
-            <h1 className={styles.title}>{recipe.title}</h1>
-            <div className={styles.filterDisplay}></div>
-            <div className={styles.imageGallery}></div>
+          <div className={styles.recipeInfoDiv}>
+            <div>
+              <h1 className={styles.title}>{recipe.title}</h1>
+              <div className={styles.filterDisplay}>
+                <FilterSelect
+                  selected={tags}
+                  setSelected={() => void 0}
+                  values={tags}
+                />
+              </div>
+            </div>
+            <div className={styles.imageGallery}>
+              {images.map((image, index) => (
+                <img
+                  key={image + index}
+                  className={styles.img}
+                  alt={recipe.title}
+                  src={imageUrlBuilder
+                    .width(80)
+                    .height(80)
+                    .image(recipe.image)
+                    .url()}
+                />
+              ))}
+            </div>
           </div>
         </div>
         <div className={styles.recipeInstructions}>
