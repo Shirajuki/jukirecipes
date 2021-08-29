@@ -32,7 +32,7 @@ const App = () => {
     <>
       <Header hidden={hideOnScroll} />
       <Wave style={{ top: 165, right: 0 }} />
-      <Wave style={{ top: 585, left: 0 }} reversed={true} />
+      <Wave style={{ top: 530, left: 0 }} reversed={true} />
       <main className={styles.main}>
         <div className={styles.container}>
           <Switch>

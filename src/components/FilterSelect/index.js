@@ -1,7 +1,7 @@
 import React from "react";
 import Filter from "../Filter";
 import styles from "./FilterSelect.module.css";
-const FilterSelect = ({ selected, setSelected, values }) => {
+const FilterSelect = ({ selected, setSelected, values, readOnly = false }) => {
   const selectHandler = (value) => {
     const nselected = selected.includes(value)
       ? selected.filter((v) => v !== value)
@@ -9,7 +9,9 @@ const FilterSelect = ({ selected, setSelected, values }) => {
     setSelected(nselected);
   };
   return (
-    <div className={styles.filterWrapper}>
+    <div
+      className={`${styles.filterWrapper} ${readOnly ? styles.readOnly : ""}`}
+    >
       {values.map((value, index) => (
         <Filter
           key={value + index}

@@ -1,45 +1,4 @@
-.list {
-  list-style-type: none;
-  padding: 0;
-}
-.placeholder {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.input {
-  border: none;
-  border-bottom: 1px solid black;
-  outline: none;
-  padding: 0.5rem;
-  width: 300px;
-  max-width: 100%;
-  text-align: center;
-}
-.input:focus {
-  border-bottom: 3px solid black;
-}
-.label {
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
-}
-.button {
-  background: none;
-  cursor: pointer;
-  display: inline;
-  width: 150px;
-  margin-bottom: 1rem;
-}
-.button:focus,
-.button:hover {
-  background-color: #eee;
-}
-.button:active {
-  background-color: #ddd;
-}
-.blockContent > p {
+.blockContent > ol {
   margin-bottom: 1rem;
 }
 
@@ -88,7 +47,7 @@
 .recipeInstructions {
   position: relative;
   display: block;
-  height: 235px;
+  height: 330px;
   border-radius: 20px;
   width: 95%;
   z-index: 2;
@@ -97,12 +56,40 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
+  ol {
+    height: calc(80% + 16px);
+    overflow-y: auto;
+    margin-bottom: 0;
+    counter-reset: instruction-counter;
+    list-style: none;
+    padding-left: 25px;
+    li {
+      margin: 0 0 2.5rem 0;
+      counter-increment: instruction-counter;
+      position: relative;
+      min-height: 65px;
+      &:last-of-type {
+        margin: 0;
+      }
+      &::before {
+        content: "Step " counter(instruction-counter);
+        color: #deab9e;
+        font-size: 1.2rem;
+        font-weight: bold;
+        position: absolute;
+        top: 20px;
+        left: -45px;
+        transform: rotate(-90deg);
+        text-align: center;
+      }
+    }
+  }
 }
 .recipeIngredientsWrapper {
   position: relative;
   border-radius: 20px;
   z-index: 2;
-
+  padding: 1.4rem;
   background-color: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 15px 0 rgba(31, 38, 135, 0.15);
   backdrop-filter: blur(4px);

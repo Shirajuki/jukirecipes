@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { useParams, Link } from "react-router-dom";
 import BlockContent from "@sanity/block-content-to-react";
 import { sanity, imageUrlBuilder } from "../../sanity";
 import styles from "./Recipe.module.scss";
 import FilterSelect from "../FilterSelect";
+import Ingredient from "../Ingredient";
 
 const query = `
   *[ _type == 'recipe' && slug.current == $slug ]
@@ -13,23 +14,30 @@ const query = `
 const images = ["a", "b", "c", "d"];
 const tags = ["Noodles", "Soup"];
 const Recipe = () => {
-  // this variable is populated from `react-router` which pulls it from the URL
+  const [checkedIngredients, setCheckedIngredients] = useState([]);
   const { slug } = useParams();
+  useEffect(() => {
+    setCheckedIngredients([]);
+  }, [slug]);
+
+  const updateCheckedIngredients = (ingredient) => {
+    const nchecked = checkedIngredients.includes(ingredient)
+      ? checkedIngredients.filter((i) => i !== ingredient)
+      : [...checkedIngredients, ingredient];
+    setCheckedIngredients(nchecked);
+  };
 
   // data is fetched from sanity via the sanity client and stored into
   // application state via react-query. note that the slug is used as the
   // "query key": https://react-query.tanstack.com/guides/query-keys
   const { data = [] } = useQuery(slug, () => sanity.fetch(query, { slug }));
 
-  // we'll use destructuring assignment to return the first mab lib
   const [recipe] = data;
-
   if (!recipe) {
     return <h1>Loading…</h1>;
   }
+  const ingredients = recipe.ingredients.map((r) => r.children[0].text);
 
-  // once the mad lib is loaded, we can map through the structured content to
-  // find our placeholder shape. the end result is an array of these placeholders
   return (
     <div className={styles.recipeWrapper}>
       <div className={styles.recipeInfoWrapper}>
@@ -54,6 +62,7 @@ const Recipe = () => {
                   selected={tags}
                   setSelected={() => void 0}
                   values={tags}
+                  readOnly={true}
                 />
               </div>
             </div>
@@ -82,10 +91,15 @@ const Recipe = () => {
         </div>
       </div>
       <div className={styles.recipeIngredientsWrapper}>
-        <BlockContent
-          className={styles.blockContent}
-          blocks={recipe.ingredients}
-        />
+        <h2>Ingredients</h2>
+        {ingredients.map((ingredient, index) => (
+          <Ingredient
+            key={ingredient + index}
+            ingredient={ingredient}
+            checked={checkedIngredients.includes(ingredient)}
+            onChange={() => updateCheckedIngredients(ingredient)}
+          />
+        ))}
       </div>
     </div>
   );

@@ -2,3 +2,6 @@
   display: flex;
   flex-wrap: wrap;
 }
+.readOnly button {
+  cursor: default;
+}

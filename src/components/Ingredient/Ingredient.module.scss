@@ -1,0 +1,39 @@
+.ingredientWrapper {
+  margin: 5px 0;
+  padding: 5px 5px 5px 0;
+  .ingredientCheckbox {
+    position: absolute;
+    opacity: 0;
+  }
+  .ingredientCheckbox:checked + .ingredientLabel {
+    &::before {
+      content: " ✔";
+      background-color: #fbbf87;
+      border: 1px solid #fbbf87;
+    }
+  }
+  .ingredientLabel {
+    position: relative;
+    padding-left: 30px;
+    display: block;
+    cursor: pointer;
+    &::before {
+      content: "";
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      background-color: #fff;
+      color: #fff;
+      position: absolute;
+      transform: translateY(2px);
+      border: 1px solid black;
+      top: 0;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      transition: 0.2s all linear;
+    }
+  }
+}
