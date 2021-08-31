@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchBar from "../SearchBar";
 import ThemeChangeButton from "../ThemeChangeButton";
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 const Header = ({ hidden }) => {
   const [searchValue, setSearchValue] = useState("");
   return (
