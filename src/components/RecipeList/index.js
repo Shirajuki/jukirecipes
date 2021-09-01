@@ -68,7 +68,7 @@ const RecipeList = () => {
       inline: "nearest",
     });
   };
-
+  if (recipes) recipes.push(recipes[0]);
   return (
     <div className={styles.listWrapper}>
       <div className={styles.heroWrapper}>
@@ -85,7 +85,9 @@ const RecipeList = () => {
           setValue={setSearchValue}
           style={{ margin: 20, marginTop: 25 }}
         />
-        <Button onClick={() => goToRecipeList()}>Let’s go cooooooook</Button>
+        <div className={styles.buttonWrapper}>
+          <Button onClick={() => goToRecipeList()}>Let’s go cooooooook</Button>
+        </div>
       </div>
       <div className={styles.recipes}>
         {recipes ? (
