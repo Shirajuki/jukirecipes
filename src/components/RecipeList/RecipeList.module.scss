@@ -27,14 +27,17 @@
       margin-bottom: 1rem;
     }
     .list {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
       justify-content: center;
       align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 10px;
       margin: 0 auto;
       & > div {
         width: 300px;
         margin: 20px;
+        align-self: center;
+        justify-self: center;
       }
       & > div > a {
         border-radius: 20px;

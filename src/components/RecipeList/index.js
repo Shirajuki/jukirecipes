@@ -68,6 +68,7 @@ const RecipeList = () => {
       inline: "nearest",
     });
   };
+
   return (
     <div className={styles.listWrapper}>
       <div className={styles.heroWrapper}>
