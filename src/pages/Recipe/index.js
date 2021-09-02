@@ -4,8 +4,8 @@ import { useParams, Link } from "react-router-dom";
 import BlockContent from "@sanity/block-content-to-react";
 import { sanity, imageUrlBuilder } from "../../sanity";
 import styles from "./Recipe.module.scss";
-import FilterSelect from "../FilterSelect";
-import Ingredient from "../Ingredient";
+import FilterSelect from "../../components/FilterSelect";
+import Ingredient from "../../components/Ingredient";
 
 const query = `
   *[ _type == 'recipe' && slug.current == $slug ]

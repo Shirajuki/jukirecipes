@@ -1,7 +1,13 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
 
-const SearchBar = ({ value, setValue, style, primary }) => {
+const SearchBar = ({
+  value,
+  setValue,
+  style,
+  primary,
+  onClick = undefined,
+}) => {
   return (
     <p className={styles.inputWrapper} style={style ? style : {}}>
       <input
@@ -9,7 +15,12 @@ const SearchBar = ({ value, setValue, style, primary }) => {
         value={value}
         onChange={({ target }) => setValue(target.value)}
       />
-      <button className={styles.iconWrapper}>
+      <button
+        className={styles.iconWrapper}
+        onClick={() => {
+          if (onClick !== undefined && onClick) onClick();
+        }}
+      >
         <svg
           className={`${primary ? styles.primary : ""} ${styles.icon}`}
           width="24"

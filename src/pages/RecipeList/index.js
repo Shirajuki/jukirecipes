@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { sanity, imageUrlBuilder } from "../../sanity";
-import SearchBar from "../SearchBar";
-import Button from "../Button";
-import FilterSelect from "../FilterSelect";
-import Spinner from "../Spinner";
+import SearchBar from "../../components/SearchBar";
+import Button from "../../components/Button";
+import FilterSelect from "../../components/FilterSelect";
+import Spinner from "../../components/Spinner";
 import styles from "./RecipeList.module.scss";
 
 const query = `
@@ -59,6 +59,7 @@ const RecipeList = () => {
     return true;
   };
   const goToRecipeList = () => {
+    console.log(123);
     if (search(searchValue)) {
       setLoading(true);
     }
@@ -84,6 +85,7 @@ const RecipeList = () => {
           value={searchValue}
           setValue={setSearchValue}
           style={{ margin: 20, marginTop: 25 }}
+          onClick={() => goToRecipeList()}
         />
         <div className={styles.buttonWrapper}>
           <Button onClick={() => goToRecipeList()}>Let’s go cooooooook</Button>
