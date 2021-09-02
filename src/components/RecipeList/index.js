@@ -92,7 +92,7 @@ const RecipeList = () => {
       <div className={styles.recipes}>
         {recipes ? (
           <>
-            <h3>Filters:</h3>
+            <h3 className={styles.filterTitleText}>Filters:</h3>
             <FilterSelect
               selected={filterValues}
               setSelected={setFilterValues}

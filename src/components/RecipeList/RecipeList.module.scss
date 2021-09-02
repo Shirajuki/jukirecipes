@@ -74,19 +74,11 @@
 
 @media only screen and (max-width: 600px) {
   .listWrapper {
-    display: block;
-    position: relative;
-    min-width: 100%;
-    width: 300px;
     margin-top: 10px;
     z-index: 10;
     .heroWrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
       height: auto;
-      margin-bottom: 50px;
+      margin-bottom: 0;
       padding-top: 0;
       .heroLogo {
         width: 84px;
@@ -100,25 +92,26 @@
       }
     }
     .recipes {
-      padding: 60px;
-      width: 90%;
-      margin: 0 auto;
-      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
-      border-radius: 50px;
-      background-color: #fff;
-      & > *:not(:last-child) {
+      padding: 10px;
+      width: 100%;
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      background-color: rgba(0, 0, 0, 0);
+      .filterTitleText {
+        display: none;
+      }
+      & > .tile:not(:last-child) {
         margin-bottom: 1rem;
       }
+      & > *:not(:last-child) {
+        margin-bottom: auto;
+      }
       .list {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-gap: 10px;
+        grid-gap: 0;
+        padding: 0;
         margin: 0 auto;
         & > div {
-          width: 300px;
-          margin: 20px;
+          width: 100%;
+          margin: 8px;
           align-self: center;
           justify-self: center;
         }
@@ -127,6 +120,45 @@
           overflow: hidden;
         }
       }
+    }
+  }
+  .tile {
+    position: relative;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 15px 0 rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 140px;
+      height: 140px;
+      border-radius: 20px;
+      background: linear-gradient(transparent, black);
+    }
+    .tileTitle {
+      position: absolute;
+      top: 5px;
+      left: 160px;
+      width: calc(100% - 170px);
+      bottom: 1rem;
+      font-size: 1.3rem;
+      z-index: 1;
+      color: black;
+      transition: 0.5s all linear;
+    }
+    &:hover .tileTitle {
+      text-decoration: underline;
+    }
+    img {
+      width: 140px;
+      height: 140px;
+      margin: 10px;
+      border-radius: 20px;
     }
   }
 }

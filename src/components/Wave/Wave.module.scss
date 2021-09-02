@@ -5,3 +5,11 @@
     transform: scale(-1, 1);
   }
 }
+@media only screen and (max-width: 600px) {
+  .wave {
+    transform: scale(0.7, 0.7) translate(21%, 300%);
+    &.reversed {
+      transform: scale(-0.7, 0.7) translate(21%, 300%);
+    }
+  }
+}

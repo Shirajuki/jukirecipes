@@ -6,7 +6,11 @@ body {
   overflow: auto;
   min-height: calc(100vh - 140px);
 }
-
 .container {
   margin: 0 auto;
+}
+@media only screen and (max-width: 600px) {
+  .main {
+    min-height: calc(100vh - 80px);
+  }
 }
