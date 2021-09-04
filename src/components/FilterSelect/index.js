@@ -1,6 +1,6 @@
 import React from "react";
 import Filter from "../Filter";
-import styles from "./FilterSelect.module.css";
+import styles from "./FilterSelect.module.scss";
 const FilterSelect = ({ selected, setSelected, values, readOnly = false }) => {
   const selectHandler = (value) => {
     const nselected = selected.includes(value)

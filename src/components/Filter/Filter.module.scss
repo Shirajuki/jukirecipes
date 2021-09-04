@@ -12,11 +12,11 @@
   color: #5d7cbb;
   text-transform: capitalize;
   transition: 0.2s all linear;
-}
-.filterButton:not(:last-of-type) {
-  margin-right: 10px;
-}
-.filterButton.active {
-  background-color: #5d7cbb;
-  color: #ffffff;
+  &:not(:last-of-type) {
+    margin-right: 10px;
+  }
+  &.active {
+    background-color: #5d7cbb;
+    color: #ffffff;
+  }
 }

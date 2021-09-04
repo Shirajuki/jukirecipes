@@ -4,9 +4,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import RecipeList from "./pages/RecipeList";
 import Recipe from "./pages/Recipe";
-import NotFound from "./pages/404";
+import NotFound from "./pages/NotFound";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
-import styles from "./App.module.css";
+import styles from "./App.module.scss";
 import Wave from "./components/Wave";
 
 const App = () => {
@@ -15,8 +15,7 @@ const App = () => {
 
   // Hides header on route change
   useEffect(() => {
-    if (location.pathname === "/") setHideOnScroll(true);
-    else setHideOnScroll(false);
+    setHideOnScroll(true);
   }, [location]);
 
   // Scrollposition hook
@@ -37,8 +36,8 @@ const App = () => {
         <div className={styles.container}>
           <Switch>
             <Route component={RecipeList} path="/" exact />
+            <Route component={NotFound} path="/404" />
             <Route component={Recipe} path="/:slug" />
-            <Route component={NotFound} />
           </Switch>
         </div>
       </main>

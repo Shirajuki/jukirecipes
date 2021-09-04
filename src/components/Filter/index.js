@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Filter.module.css";
+import styles from "./Filter.module.scss";
 const Filter = ({ selected, onClick, children }) => {
   return (
     <button

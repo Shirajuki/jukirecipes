@@ -6,6 +6,7 @@ import { sanity, imageUrlBuilder } from "../../sanity";
 import styles from "./Recipe.module.scss";
 import FilterSelect from "../../components/FilterSelect";
 import Ingredient from "../../components/Ingredient";
+import { Redirect } from "react-router-dom";
 
 const query = `
   *[ _type == 'recipe' && slug.current == $slug ]
@@ -30,6 +31,9 @@ const Recipe = () => {
   // application state via react-query. note that the slug is used as the
   // "query key": https://react-query.tanstack.com/guides/query-keys
   const { data = [] } = useQuery(slug, () => sanity.fetch(query, { slug }));
+  if (data.length === 0) {
+    return <Redirect to="/404" />;
+  }
 
   const [recipe] = data;
   if (!recipe) {

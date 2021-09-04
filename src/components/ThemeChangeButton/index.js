@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ThemeChangeButton.module.css";
+import styles from "./ThemeChangeButton.module.scss";
 
 const ThemeChangeButton = () => {
   return (

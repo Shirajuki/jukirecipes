@@ -31,8 +31,8 @@
 .primary {
   color: #e96271;
   fill: #e96271;
-}
-.primary > path {
-  color: #e96271;
-  fill: #e96271;
+  & > path {
+    color: #e96271;
+    fill: #e96271;
+  }
 }
