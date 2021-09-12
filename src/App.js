@@ -17,6 +17,11 @@ const App = () => {
   useEffect(() => {
     setHideOnScroll(true);
     setTimeout(() => setHideOnScroll(true), 100);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   }, [location.pathname]);
 
   // Scrollposition hook

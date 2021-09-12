@@ -6,6 +6,7 @@ import { sanity, imageUrlBuilder } from "../../sanity";
 import styles from "./Recipe.module.scss";
 import FilterSelect from "../../components/FilterSelect";
 import Ingredient from "../../components/Ingredient";
+import Button from "../../components/Button";
 import { Redirect } from "react-router-dom";
 
 const query = `
@@ -15,6 +16,7 @@ const query = `
 const images = ["a", "b", "c", "d"];
 const Recipe = () => {
   const [checkedIngredients, setCheckedIngredients] = useState([]);
+  const [toggledIngredients, setToggledIngredients] = useState(false);
   const { slug } = useParams();
   useEffect(() => {
     setCheckedIngredients([]);
@@ -25,6 +27,9 @@ const Recipe = () => {
       ? checkedIngredients.filter((i) => i !== ingredient)
       : [...checkedIngredients, ingredient];
     setCheckedIngredients(nchecked);
+  };
+  const toggleIngredients = () => {
+    setToggledIngredients(!toggledIngredients);
   };
 
   // data is fetched from sanity via the sanity client and stored into
@@ -79,6 +84,7 @@ const Recipe = () => {
                   readOnly={true}
                 />
               </div>
+              <Button onClick={toggleIngredients}>Show ingredients</Button>
             </div>
             <div className={styles.imageGallery}>
               {images.map((image, index) => (
@@ -104,7 +110,11 @@ const Recipe = () => {
           />
         </div>
       </div>
-      <div className={styles.recipeIngredientsWrapper}>
+      <div
+        className={`${styles.recipeIngredientsWrapper} ${
+          toggledIngredients ? styles.toggledIngredients : ""
+        }`}
+      >
         <h2>Ingredients</h2>
         {ingredients.map((ingredient, index) => (
           <Ingredient
@@ -115,6 +125,10 @@ const Recipe = () => {
           />
         ))}
       </div>
+      <div
+        className={styles.hiddenIngredientsWrapper}
+        onClick={toggleIngredients}
+      ></div>
     </div>
   );
 };

@@ -111,6 +111,11 @@
   overflow: auto;
   max-height: 646px;
 }
+.hiddenIngredientsWrapper {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s all;
+}
 @media only screen and (max-width: 1024px) {
   .recipeWrapper {
     background: rgba(0, 0, 0, 0);
@@ -184,6 +189,29 @@
     }
   }
   .recipeIngredientsWrapper {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #ffffff;
+    height: 100vh;
+    max-height: 100%;
+    width: 80%;
+    transform: translateX(0);
+    transition: 0.3s transform ease-out;
+  }
+  .recipeIngredientsWrapper:not(.toggledIngredients) {
+    transform: translateX(100%);
+  }
+  .recipeIngredientsWrapper.toggledIngredients + .hiddenIngredientsWrapper {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 1;
+    pointer-events: all;
   }
 }
