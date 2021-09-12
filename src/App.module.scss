@@ -2,9 +2,10 @@ body {
   background-color: #f9f9f9;
 }
 .main {
+  position: relative;
   padding: 1rem;
-  overflow: auto;
-  min-height: calc(100vh - 140px);
+  min-height: calc(100vh - 80px);
+  z-index: 10;
 }
 .container {
   margin: 0 auto;

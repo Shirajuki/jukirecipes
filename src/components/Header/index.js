@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import SearchBar from "../SearchBar";
 import ThemeChangeButton from "../ThemeChangeButton";
 import styles from "./Header.module.scss";
-const Header = ({ hidden }) => {
+const Header = ({ hidden, style }) => {
   const [searchValue, setSearchValue] = useState("");
   return (
-    <header className={`${styles.header} ${hidden ? styles.hidden : ""}`}>
+    <header
+      className={`${styles.header} ${hidden ? styles.hidden : ""}`}
+      style={style ?? {}}
+    >
       <a className={styles.headerLink} href="/#">
         <img
           className={styles.logo}

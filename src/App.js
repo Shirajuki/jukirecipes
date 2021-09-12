@@ -16,21 +16,24 @@ const App = () => {
   // Hides header on route change
   useEffect(() => {
     setHideOnScroll(true);
-    setTimeout(() => setHideOnScroll(true), 10);
+    setTimeout(() => setHideOnScroll(true), 100);
   }, [location.pathname]);
 
   // Scrollposition hook
   useScrollPosition(
     ({ prevPos: _, currPos }) => {
       const isShow = currPos.y < -400;
-      if (isShow || location.pathname !== "/") setHideOnScroll(false);
+      if (isShow && location.pathname === "/") setHideOnScroll(false);
       else setHideOnScroll(true);
     },
     [hideOnScroll, location.pathname]
   );
   return (
     <>
-      <Header hidden={hideOnScroll} />
+      <Header
+        hidden={hideOnScroll}
+        style={{ display: location.pathname === "/" ? "flex" : "none" }}
+      />
       <Wave style={{ top: 165, right: 0 }} />
       <Wave style={{ top: 530, left: 0 }} reversed={true} />
       <main className={styles.main}>

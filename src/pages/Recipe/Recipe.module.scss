@@ -8,9 +8,7 @@
   margin-left: 5px;
   padding: 5px;
 }
-
 .recipeWrapper {
-  display: block;
   background: #ffffff;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
   border-radius: 50px;
@@ -50,7 +48,6 @@
     }
   }
 }
-
 .recipeInstructions {
   position: relative;
   display: block;
@@ -113,4 +110,80 @@
   height: 100%;
   overflow: auto;
   max-height: 646px;
+}
+@media only screen and (max-width: 1024px) {
+  .recipeWrapper {
+    background: rgba(0, 0, 0, 0);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    display: flex;
+    padding: 1rem;
+    margin: 0;
+    .recipeInfoWrapper {
+      display: flex;
+      flex-direction: column;
+      .recipeInfo {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        .img {
+          width: 45%;
+          margin: 0 auto;
+        }
+        .recipeInfoDiv {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .title {
+            margin-right: 10px;
+          }
+          .filterDisplay {
+            margin-top: 10px;
+          }
+          .imageGallery {
+            display: flex;
+            justify-content: center;
+            .img {
+              border-radius: 10px;
+              cursor: pointer;
+              margin: 10px;
+              max-width: 150px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .recipeInstructions {
+    position: relative;
+    display: block;
+    height: auto;
+    border-radius: 20px;
+    width: 100%;
+    z-index: 2;
+    margin-top: 10px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      background-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 15px 0 rgba(31, 38, 135, 0.15);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+      z-index: -1;
+    }
+    ol {
+      height: 100%;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+  }
+  .recipeIngredientsWrapper {
+    display: none;
+  }
 }
