@@ -59,17 +59,41 @@
     content: " ";
     background: linear-gradient(transparent, black);
   }
-  .tileTitle {
+  .tileTitle,
+  .tileInstructionCount,
+  .tileIngredientCount {
     position: absolute;
     bottom: 1rem;
     left: 1rem;
     z-index: 1;
     color: white;
-    transition: 0.5s all linear;
+    transition: 0.5s color linear;
+  }
+  .tileInstructionCount {
+    bottom: 4rem;
+  }
+  .tileIngredientCount {
+    bottom: 3rem;
   }
   &:hover .tileTitle {
     text-decoration: underline;
   }
+}
+
+.notFound {
+  padding: 20px 0 5px 0;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+.filterDisplay {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 160px;
+  width: calc(100% - 170px);
+  bottom: 1rem;
+  z-index: 1;
+  pointer-events: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -122,13 +146,15 @@
       }
     }
   }
+  .filterDisplay {
+    display: block;
+  }
   .tile {
     position: relative;
     display: block;
     background-color: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 15px 0 rgba(31, 38, 135, 0.15);
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     &::after {
       content: " ";
@@ -140,16 +166,27 @@
       border-radius: 20px;
       background: linear-gradient(transparent, black);
     }
-    .tileTitle {
+    .tileTitle,
+    .tileInstructionCount,
+    .tileIngredientCount {
       position: absolute;
-      top: 5px;
       left: 160px;
       width: calc(100% - 170px);
       bottom: 1rem;
-      font-size: 1.3rem;
       z-index: 1;
       color: black;
-      transition: 0.5s all linear;
+    }
+    .tileTitle {
+      top: 5px;
+      font-size: 1.3rem;
+    }
+    .tileInstructionCount,
+    .tileIngredientCount {
+      top: auto;
+      font-size: 1rem;
+    }
+    .tileIngredientCount {
+      bottom: 2rem;
     }
     &:hover .tileTitle {
       text-decoration: underline;

@@ -16,7 +16,8 @@ const App = () => {
   // Hides header on route change
   useEffect(() => {
     setHideOnScroll(true);
-  }, [location]);
+    setTimeout(() => setHideOnScroll(true), 10);
+  }, [location.pathname]);
 
   // Scrollposition hook
   useScrollPosition(

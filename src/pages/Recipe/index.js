@@ -30,12 +30,12 @@ const Recipe = () => {
   // data is fetched from sanity via the sanity client and stored into
   // application state via react-query. note that the slug is used as the
   // "query key": https://react-query.tanstack.com/guides/query-keys
-  const { data = [] } = useQuery(slug, () => sanity.fetch(query, { slug }));
-  if (data.length === 0) {
+  const { data } = useQuery(slug, () => sanity.fetch(query, { slug }));
+  if (data?.length === 0) {
     return <Redirect to="/404" />;
   }
 
-  const [recipe] = data;
+  const [recipe] = data ?? [];
   if (!recipe) {
     return <h1>Loading…</h1>;
   }

@@ -19,4 +19,15 @@
     background-color: #5d7cbb;
     color: #ffffff;
   }
+  &.readOnly:not(.rounded) {
+    background: #ffffff;
+    border: 2px solid #5d7cbb;
+    color: #5d7cbb;
+  }
+  &.rounded {
+    color: rgba(0, 0, 0, 0);
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
 }

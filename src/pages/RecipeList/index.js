@@ -9,7 +9,7 @@ import Spinner from "../../components/Spinner";
 import styles from "./RecipeList.module.scss";
 
 const query = `
-  *[ _type == 'recipe' ] { title, image, slug, tags }
+  *[ _type == 'recipe' ] { title, image, slug, tags, instructions, ingredients }
 `;
 const filterValueList = ["pasta", "noodle", "soup", "rice", "desert"];
 const normalizeLower = (value) =>
@@ -103,26 +103,56 @@ const RecipeList = () => {
             <div className={styles.list} ref={listRef}>
               {loading ? (
                 <Spinner />
+              ) : filteredRecipes.length > 0 ? (
+                filteredRecipes.map(
+                  (
+                    { title, slug, image, instructions, ingredients, tags },
+                    index
+                  ) => (
+                    <div key={slug.current + index}>
+                      <Link className={styles.tile} to={`/${slug.current}`}>
+                        <img
+                          alt={title}
+                          // use the sanity `imageUrlBuilder` to
+                          // generate optimized images on the fly
+                          src={imageUrlBuilder
+                            .width(375)
+                            .height(375)
+                            .image(image)
+                            .url()}
+                          width="300px"
+                          height="300px"
+                        />
+                        <h2 className={styles.tileTitle}>{title}</h2>
+                        <div className={styles.filterDisplay}>
+                          <FilterSelect
+                            selected={tags}
+                            setSelected={() => void 0}
+                            values={tags}
+                            readOnly={true}
+                            rounded={true}
+                          />
+                        </div>
+                        <p className={styles.tileInstructionCount}>
+                          {instructions.length === 1
+                            ? `${instructions.length} Step`
+                            : `${instructions.length} Steps`}
+                        </p>
+                        <p className={styles.tileIngredientCount}>
+                          {ingredients.length === 1
+                            ? `${ingredients.length} Ingredient`
+                            : `${ingredients.length} Ingredients`}
+                        </p>
+                      </Link>
+                    </div>
+                  )
+                )
               ) : (
-                filteredRecipes.map(({ title, slug, image }, index) => (
-                  <div key={slug.current + index}>
-                    <Link className={styles.tile} to={`/${slug.current}`}>
-                      <img
-                        alt={title}
-                        // use the sanity `imageUrlBuilder` to
-                        // generate optimized images on the fly
-                        src={imageUrlBuilder
-                          .width(375)
-                          .height(375)
-                          .image(image)
-                          .url()}
-                        width="300px"
-                        height="300px"
-                      />
-                      <h2 className={styles.tileTitle}>{title}</h2>
-                    </Link>
-                  </div>
-                ))
+                <p className={styles.notFound}>
+                  <i>
+                    No recipes was found on this filter/search combination...
+                  </i>
+                </p>
               )}
             </div>
           </>
