@@ -84,7 +84,9 @@ const Recipe = () => {
                   readOnly={true}
                 />
               </div>
-              <Button onClick={toggleIngredients}>Show ingredients</Button>
+              <div className={styles.buttonWrapper}>
+                <Button onClick={toggleIngredients}>Show ingredients</Button>
+              </div>
             </div>
             <div className={styles.imageGallery}>
               {images.map((image, index) => (

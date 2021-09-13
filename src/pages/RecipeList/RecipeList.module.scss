@@ -136,12 +136,6 @@
         & > div {
           width: 100%;
           margin: 8px;
-          align-self: center;
-          justify-self: center;
-        }
-        & > div > a {
-          border-radius: 20px;
-          overflow: hidden;
         }
       }
     }
@@ -157,14 +151,11 @@
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     &::after {
-      content: " ";
-      position: absolute;
       top: 10px;
       left: 10px;
       width: 140px;
       height: 140px;
       border-radius: 20px;
-      background: linear-gradient(transparent, black);
     }
     .tileTitle,
     .tileInstructionCount,
@@ -187,9 +178,6 @@
     }
     .tileIngredientCount {
       bottom: 2rem;
-    }
-    &:hover .tileTitle {
-      text-decoration: underline;
     }
     img {
       width: 140px;

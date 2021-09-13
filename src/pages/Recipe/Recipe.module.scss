@@ -31,6 +31,9 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        .buttonWrapper {
+          display: none;
+        }
         .title {
           margin-right: 10px;
         }
@@ -138,6 +141,13 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          .buttonWrapper {
+            display: block;
+            button {
+              max-width: 300px;
+              width: 70%;
+            }
+          }
           .title {
             margin-right: 10px;
           }
@@ -190,6 +200,7 @@
   }
   .recipeIngredientsWrapper {
     position: fixed;
+    border-radius: 20px 0 0 20px;
     top: 0;
     right: 0;
     background-color: #ffffff;
@@ -197,7 +208,7 @@
     max-height: 100%;
     width: 80%;
     transform: translateX(0);
-    transition: 0.3s transform ease-out;
+    transition: 0.4s transform ease-out;
   }
   .recipeIngredientsWrapper:not(.toggledIngredients) {
     transform: translateX(100%);
