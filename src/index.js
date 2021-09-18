@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { persistQueryClient } from "react-query/persistQueryClient-experimental";
 import { createWebStoragePersistor } from "react-query/createWebStoragePersistor-experimental";
 import App from "./App";
+import { reducer, StateProvider } from "./state";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
@@ -31,7 +32,9 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <App />
+        <StateProvider reducer={reducer}>
+          <App />
+        </StateProvider>
       </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>,

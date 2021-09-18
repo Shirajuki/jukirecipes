@@ -1,9 +1,35 @@
 import React, { useState } from "react";
 import SearchBar from "../SearchBar";
 import ThemeChangeButton from "../ThemeChangeButton";
+import { useStateValue } from "../../state";
 import styles from "./Header.module.scss";
+
 const Header = ({ hidden, style }) => {
-  const [searchValue, setSearchValue] = useState("");
+  const [{ searchValue }, dispatch] = useStateValue();
+  const setSearchValue = (value) => {
+    dispatch({ type: "SET_SEARCH_VALUE", payload: value });
+  };
+  const setSearched = (value) => {
+    dispatch({ type: "SET_SEARCHED", payload: value });
+  };
+  const setLoading = (value) => {
+    dispatch({ type: "SET_LOADING", payload: value });
+  };
+  const search = (value) => {
+    setTimeout(() => setLoading(false), 1000);
+    setSearched(value);
+    return true;
+  };
+  const goToRecipeList = () => {
+    if (search(searchValue)) {
+      document.querySelector("header").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+      setLoading(true);
+    }
+  };
   return (
     <header
       className={`${styles.header} ${hidden ? styles.hidden : ""}`}
@@ -21,6 +47,7 @@ const Header = ({ hidden, style }) => {
           value={searchValue}
           setValue={setSearchValue}
           primary={true}
+          onClick={() => goToRecipeList()}
         />
         <ThemeChangeButton />
       </div>

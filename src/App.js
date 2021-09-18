@@ -8,7 +8,6 @@ import NotFound from "./pages/NotFound";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import styles from "./App.module.scss";
 import Wave from "./components/Wave";
-
 const App = () => {
   const [hideOnScroll, setHideOnScroll] = useState(true);
   const location = useLocation();

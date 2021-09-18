@@ -7,6 +7,7 @@ import Button from "../../components/Button";
 import FilterSelect from "../../components/FilterSelect";
 import Spinner from "../../components/Spinner";
 import styles from "./RecipeList.module.scss";
+import { useStateValue } from "../../state";
 
 const query = `
   *[ _type == 'recipe' ] { title, image, slug, tags, instructions, ingredients }
@@ -21,11 +22,18 @@ const RecipeList = () => {
   // in this one line, data is fetched from sanity via the sanity client and
   // stored into application state via react-query!
   const { data: recipes } = useQuery("recipeList", () => sanity.fetch(query));
-  const [searchValue, setSearchValue] = useState("");
-  const [searched, setSearched] = useState("");
+  const [{ searchValue, searched, loading }, dispatch] = useStateValue();
+  const setSearchValue = (value) => {
+    dispatch({ type: "SET_SEARCH_VALUE", payload: value });
+  };
+  const setSearched = (value) => {
+    dispatch({ type: "SET_SEARCHED", payload: value });
+  };
+  const setLoading = (value) => {
+    dispatch({ type: "SET_LOADING", payload: value });
+  };
   const [filterValues, setFilterValues] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
-  const [loading, setLoading] = useState(false);
   const listRef = useRef(null);
   const searchValueRef = useRef(searchValue);
   searchValueRef.current = searchValue;
@@ -59,7 +67,6 @@ const RecipeList = () => {
     return true;
   };
   const goToRecipeList = () => {
-    console.log(123);
     if (search(searchValue)) {
       setLoading(true);
     }
