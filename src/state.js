@@ -1,7 +1,12 @@
 import React, { useReducer, useContext } from "react";
 
 const StateContext = React.createContext();
-const initialState = { searchValue: "", searched: "", loading: false };
+const initialState = {
+  searchValue: "",
+  searched: "",
+  loading: false,
+  darkmode: false,
+};
 
 export const useStateValue = () => useContext(StateContext);
 
@@ -22,6 +27,8 @@ export const reducer = (state, action) => {
       return { ...state, searched: action.payload };
     case "SET_LOADING":
       return { ...state, loading: action.payload };
+    case "SET_DARKMODE":
+      return { ...state, darkmode: action.payload };
     default:
       return state;
   }

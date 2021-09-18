@@ -1,8 +1,8 @@
 .button {
-  background: linear-gradient(109.51deg, #b62c56 -5.18%, #f48693 98.3%);
+  background: var(--button-gradient);
   border-radius: 50px;
   border: none;
-  color: #fff;
+  color: var(--button-text);
   font-weight: 500;
   padding: 12px 2.5rem;
   cursor: pointer;

@@ -7,7 +7,7 @@
   span {
     width: 15px;
     height: 15px;
-    background-color: #ffdfac;
+    background-color: var(--yellow-dark);
     border-radius: 100%;
     animation: bounce 1.4s infinite ease-in-out both;
     &:nth-of-type(1) {

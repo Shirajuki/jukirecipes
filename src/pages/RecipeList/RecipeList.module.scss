@@ -20,9 +20,9 @@
     padding: 60px;
     width: 90%;
     margin: 0 auto;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--recipe-box-shadow);
     border-radius: 50px;
-    background-color: #fff;
+    background-color: var(--background-light);
     & > *:not(:last-child) {
       margin-bottom: 1rem;
     }
@@ -83,7 +83,7 @@
 .notFound {
   padding: 20px 0 5px 0;
   text-align: center;
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--text-dark);
 }
 .filterDisplay {
   display: none;
@@ -94,6 +94,11 @@
   bottom: 1rem;
   z-index: 1;
   pointer-events: none;
+}
+h1,
+h2,
+h3 {
+  color: var(--title);
 }
 
 @media only screen and (max-width: 600px) {
@@ -118,8 +123,8 @@
     .recipes {
       padding: 10px;
       width: 100%;
-      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-      background-color: rgba(0, 0, 0, 0);
+      box-shadow: 0px 0px 0px var(--transparent);
+      background-color: var(--transparent);
       .filterTitleText {
         display: none;
       }
@@ -146,10 +151,10 @@
   .tile {
     position: relative;
     display: block;
-    background-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 15px 0 rgba(31, 38, 135, 0.15);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: var(--blur-background);
+    box-shadow: var(--blur-box-shadow);
+    backdrop-filter: var(--blur-filter);
+    border: var(--blur-border);
     &::after {
       top: 10px;
       left: 10px;
@@ -165,7 +170,7 @@
       width: calc(100% - 170px);
       bottom: 1rem;
       z-index: 1;
-      color: black;
+      color: var(--text-darker);
     }
     .tileTitle {
       top: 5px;

@@ -8,7 +8,9 @@ import NotFound from "./pages/NotFound";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import styles from "./App.module.scss";
 import Wave from "./components/Wave";
+import { useStateValue } from "./state";
 const App = () => {
+  const [{ darkmode }, _] = useStateValue();
   const [hideOnScroll, setHideOnScroll] = useState(true);
   const location = useLocation();
 
@@ -33,7 +35,7 @@ const App = () => {
     [hideOnScroll, location.pathname]
   );
   return (
-    <>
+    <div className={darkmode ? "darkmode" : ""}>
       <Header
         hidden={hideOnScroll}
         style={{ display: location.pathname === "/" ? "flex" : "none" }}
@@ -51,7 +53,7 @@ const App = () => {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

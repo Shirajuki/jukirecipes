@@ -1,14 +1,35 @@
-.themeButton {
-  position: relative;
-  width: 30px;
-  border: none;
-  background: rgba(0, 0, 0, 0);
-  margin-left: 15px;
-}
 .themeIcon {
   position: absolute;
   width: 30px;
   height: 30px;
   bottom: 5px;
   left: 0;
+}
+.themeButton {
+  position: relative;
+  width: 30px;
+  border: none;
+  background: var(--transparent);
+  margin-left: 15px;
+  cursor: pointer;
+  svg > path {
+    &:first-of-type {
+      transition: fill 0.6s, transform 1s;
+    }
+    transition: fill 0.6s, transform 1s cubic-bezier(0.5, -0.4, 0.2, 1.4);
+    transform-origin: center center;
+  }
+  &:hover {
+    svg > path {
+      fill: var(--red-dark);
+    }
+  }
+  &.dark {
+    svg > path:not(:first-of-type) {
+      transform: rotate(720deg);
+    }
+    svg > path:first-of-type {
+      transform: translateX(-5px) scaleY(1.3);
+    }
+  }
 }

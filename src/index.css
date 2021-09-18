@@ -1,3 +1,53 @@
+:root {
+  --background-light: #ffffff;
+  --background-dark: #f9f9f9;
+  --background-backdrop: rgba(0, 0, 0, 0.6);
+  --red-light: #e96271;
+  --red-dark: #b62c56;
+  --yellow-light: #ffdfac;
+  --yellow-dark: #fbbf87;
+  --yellow-darker: #deab9e;
+  --blue-light: #5d7cbb;
+  --blue-dark: #305b9d;
+  --button-gradient: linear-gradient(109.51deg, #b62c56 -5.18%, #f48693 98.3%);
+  --button-text: #ffffff;
+  --filter-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08),
+    inset 0px 0px 10px rgba(0, 0, 0, 0.25);
+  --box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.16);
+  --search-border: 1px solid #eaeaea;
+  --recipe-box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+  --blur-background: rgba(255, 255, 255, 0.25);
+  --blur-box-shadow: 0 8px 15px 0 rgba(31, 38, 135, 0.15);
+  --blur-filter: blur(4px);
+  --blur-border: 1px solid rgba(255, 255, 255, 0.18);
+  --text-light: #fff;
+  --text-dark: rgba(0, 0, 0, 0.7);
+  --text-darker: #000000;
+  --title: #ffffff;
+  --title-dark: #769e02;
+  --transparent: rgba(0, 0, 0, 0);
+}
+.darkmode {
+  --background-light: #171717;
+  --background-dark: #2f2f2f;
+  --background-backdrop: rgba(0, 0, 0, 0.6);
+  --filter-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08),
+    inset 0px 0px 10px rgba(0, 0, 0, 0.25);
+  --box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.16);
+  --search-border: 1px solid #eaeaea;
+  --recipe-box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+  --blur-background: rgba(255, 255, 255, 0.25);
+  --blur-box-shadow: 0 8px 15px 0 rgba(31, 38, 135, 0.15);
+  --blur-filter: blur(4px);
+  --blur-border: 1px solid rgba(255, 255, 255, 0.18);
+  --text-light: #ffffff;
+  --text-dark: #e6e6e6;
+  --text-darker: #e6e6e6;
+  --title: #e6e6e6;
+  --title-dark: #769e02;
+  --transparent: rgba(0, 0, 0, 0);
+  background-color: var(--background-dark);
+}
 body {
   scroll-behavior: smooth;
   margin: 0;
@@ -10,6 +60,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+p {
+  color: var(--text-darker);
 }
 
 @media only screen and (max-width: 420px) {

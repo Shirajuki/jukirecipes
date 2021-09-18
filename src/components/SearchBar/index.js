@@ -22,7 +22,9 @@ const SearchBar = ({
         }}
       >
         <svg
-          className={`${primary ? styles.primary : ""} ${styles.icon}`}
+          className={`${primary ? styles.primary : styles.secondary} ${
+            styles.icon
+          }`}
           width="24"
           height="24"
           viewBox="0 0 24 24"

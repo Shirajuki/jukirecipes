@@ -5,9 +5,9 @@
   align-items: flex-end;
   padding: 0 1rem;
   top: 0;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: var(--box-shadow);
   font-weight: bold;
-  background-color: #f9f9f9;
+  background-color: var(--background-dark);
   z-index: 9001;
   height: 60px;
   transition: 0.5s all;
@@ -17,7 +17,6 @@
   }
   .headerLink {
     display: inline-block;
-    color: black;
     text-decoration: none;
     position: relative;
     height: 50px;
@@ -35,8 +34,8 @@
     margin-bottom: 7px;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .header {
-    display: none;
+    display: none !important;
   }
 }

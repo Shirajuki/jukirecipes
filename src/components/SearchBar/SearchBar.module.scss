@@ -2,8 +2,8 @@
   position: relative;
 }
 .input {
-  background-color: #f9f9f9;
-  border: 1px solid #eaeaea;
+  background-color: var(--background-dark);
+  border: var(--search-border);
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   min-width: 200px;
@@ -18,7 +18,7 @@
   width: 24px;
   height: 24px;
   border: none;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: var(--transparent);
   cursor: pointer;
 }
 .icon {
@@ -29,10 +29,18 @@
   height: 22px;
 }
 .primary {
-  color: #e96271;
-  fill: #e96271;
+  color: var(--red-light);
+  fill: var(--red-light);
   & > path {
-    color: #e96271;
-    fill: #e96271;
+    color: var(--red-light);
+    fill: var(--red-light);
+  }
+}
+.secondary {
+  color: var(--blue-dark);
+  fill: var(--blue-dark);
+  & > path {
+    color: var(--blue-dark);
+    fill: var(--blue-dark);
   }
 }
