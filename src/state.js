@@ -5,7 +5,7 @@ const initialState = {
   searchValue: '',
   searched: '',
   loading: false,
-  darkmode: false,
+  darkmode: undefined,
 };
 
 export const useStateValue = () => useContext(StateContext);

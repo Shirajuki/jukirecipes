@@ -3,7 +3,10 @@ import styles from './SearchBar.module.scss';
 
 const SearchBar = ({ value, setValue, style, primary, onClick = undefined }) => {
   return (
-    <p className={styles.inputWrapper} style={style ? style : {}}>
+    <p
+      className={`${primary ? styles.wrapperPrimary : ''} ${styles.inputWrapper}`}
+      style={style ? style : {}}
+    >
       <input
         className={styles.input}
         value={value}

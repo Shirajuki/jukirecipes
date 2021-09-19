@@ -51,6 +51,7 @@
     }
   }
 }
+
 .recipeInstructions {
   position: relative;
   display: block;
@@ -58,6 +59,7 @@
   border-radius: 20px;
   width: 95%;
   z-index: 2;
+  color: var(--text-dark);
 
   &::before {
     content: '';
@@ -113,6 +115,7 @@
   height: 100%;
   overflow: auto;
   max-height: 646px;
+  color: var(--text-dark);
 }
 .hiddenIngredientsWrapper {
   opacity: 0;

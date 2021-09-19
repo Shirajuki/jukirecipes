@@ -22,10 +22,14 @@ const ThemeChangeButton = () => {
       }
     }
   }, []);
+
   useEffect(() => {
+    console.log(darkmode);
     const theme = localStorage.getItem('jukirecipes-darkmode');
-    if (theme) localStorage.setItem('jukirecipes-darkmode', String(darkmode));
+    if (theme && darkmode !== undefined)
+      localStorage.setItem('jukirecipes-darkmode', String(darkmode));
   }, [darkmode]);
+
   return (
     <button
       onClick={() => setDarkmode(!darkmode)}

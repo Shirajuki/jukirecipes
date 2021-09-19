@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import styles from './App.module.scss';
 import Wave from './components/Wave';
+import ThemeChangeButton from './components/ThemeChangeButton';
 import { useStateValue } from './state';
 const App = () => {
   const [{ darkmode }, _] = useStateValue();
@@ -40,6 +41,13 @@ const App = () => {
         hidden={hideOnScroll}
         style={{ display: location.pathname === '/' ? 'flex' : 'none' }}
       />
+      <div
+        className={`${styles.themeButtonWrapper} ${
+          hideOnScroll && location.pathname === '/' ? '' : styles.hidden
+        }`}
+      >
+        <ThemeChangeButton />
+      </div>
       <Wave style={{ top: 165, right: 0 }} />
       <Wave style={{ top: 530, left: 0 }} reversed={true} />
       <main className={styles.main}>

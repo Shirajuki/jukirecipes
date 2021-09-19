@@ -10,8 +10,28 @@ body {
 .container {
   margin: 0 auto;
 }
+.themeButtonWrapper {
+  position: fixed;
+  top: 20px;
+  z-index: 9001;
+  width: 100vw;
+  transition: 0.5s opacity;
+  display: none;
+  &.hidden {
+    pointer-events: none;
+    opacity: 0;
+  }
+  button {
+    position: absolute;
+    right: 35px;
+    top: 20px;
+  }
+}
 @media only screen and (max-width: 600px) {
   .main {
     min-height: calc(100vh - 80px);
+  }
+  .themeButtonWrapper {
+    display: block;
   }
 }
