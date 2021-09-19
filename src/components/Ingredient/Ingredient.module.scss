@@ -7,7 +7,7 @@
   }
   .ingredientCheckbox:checked + .ingredientLabel {
     &::before {
-      content: " ✔";
+      content: ' ✔';
       background-color: var(--yellow-dark);
       border: 1px solid var(--yellow-dark);
     }
@@ -18,7 +18,7 @@
     display: block;
     cursor: pointer;
     &::before {
-      content: "";
+      content: '';
       display: flex;
       justify-content: center;
       align-items: center;

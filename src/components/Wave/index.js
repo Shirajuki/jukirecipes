@@ -1,11 +1,11 @@
-import React from "react";
-import styles from "./Wave.module.scss";
+import React from 'react';
+import styles from './Wave.module.scss';
 
 const Wave = ({ reversed, style }) => {
   return (
     <svg
       style={style ?? {}}
-      className={`${styles.wave} ${reversed ? styles.reversed : ""}`}
+      className={`${styles.wave} ${reversed ? styles.reversed : ''}`}
       width="192"
       height="93"
       viewBox="0 0 192 93"

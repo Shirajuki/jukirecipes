@@ -1,6 +1,6 @@
-import React from "react";
-import Filter from "../Filter";
-import styles from "./FilterSelect.module.scss";
+import React from 'react';
+import Filter from '../Filter';
+import styles from './FilterSelect.module.scss';
 const FilterSelect = ({
   selected,
   setSelected,
@@ -15,9 +15,7 @@ const FilterSelect = ({
     setSelected(nselected);
   };
   return (
-    <div
-      className={`${styles.filterWrapper} ${readOnly ? styles.readOnly : ""}`}
-    >
+    <div className={`${styles.filterWrapper} ${readOnly ? styles.readOnly : ''}`}>
       {values.map((value, index) => (
         <Filter
           key={value + index}

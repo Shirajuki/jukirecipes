@@ -1,35 +1,35 @@
-import React, { useEffect, useRef } from "react";
-import { useStateValue } from "../../state";
-import styles from "./ThemeChangeButton.module.scss";
+import React, { useEffect, useRef } from 'react';
+import { useStateValue } from '../../state';
+import styles from './ThemeChangeButton.module.scss';
 
 const ThemeChangeButton = () => {
   const [{ darkmode }, dispatch] = useStateValue();
   const setDarkmode = (value) => {
-    dispatch({ type: "SET_DARKMODE", payload: value });
+    dispatch({ type: 'SET_DARKMODE', payload: value });
   };
   const setDarkmodeRef = useRef(null);
   setDarkmodeRef.current = setDarkmode;
   useEffect(() => {
-    const theme = localStorage.getItem("jukirecipes-darkmode");
-    if (theme === "true") setDarkmodeRef.current(true);
-    else if (theme === "false") setDarkmodeRef.current(false);
-    else if (window.matchMedia("(prefers-color-scheme)").media !== "not all") {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        localStorage.setItem("jukirecipes-darkmode", String(false));
+    const theme = localStorage.getItem('jukirecipes-darkmode');
+    if (theme === 'true') setDarkmodeRef.current(true);
+    else if (theme === 'false') setDarkmodeRef.current(false);
+    else if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        localStorage.setItem('jukirecipes-darkmode', String(false));
         setDarkmodeRef.current(true);
-      } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-        localStorage.setItem("jukirecipes-darkmode", String(true));
+      } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        localStorage.setItem('jukirecipes-darkmode', String(true));
       }
     }
   }, []);
   useEffect(() => {
-    const theme = localStorage.getItem("jukirecipes-darkmode");
-    if (theme) localStorage.setItem("jukirecipes-darkmode", String(darkmode));
+    const theme = localStorage.getItem('jukirecipes-darkmode');
+    if (theme) localStorage.setItem('jukirecipes-darkmode', String(darkmode));
   }, [darkmode]);
   return (
     <button
       onClick={() => setDarkmode(!darkmode)}
-      className={`${styles.themeButton} ${darkmode ? styles.dark : ""}`}
+      className={`${styles.themeButton} ${darkmode ? styles.dark : ''}`}
     >
       <svg
         className={styles.themeIcon}

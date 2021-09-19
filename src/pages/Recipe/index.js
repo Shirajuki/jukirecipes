@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import { useParams, Link } from "react-router-dom";
-import BlockContent from "@sanity/block-content-to-react";
-import { sanity, imageUrlBuilder } from "../../sanity";
-import styles from "./Recipe.module.scss";
-import FilterSelect from "../../components/FilterSelect";
-import Ingredient from "../../components/Ingredient";
-import Button from "../../components/Button";
-import { Redirect } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import { useParams, Link } from 'react-router-dom';
+import BlockContent from '@sanity/block-content-to-react';
+import { sanity, imageUrlBuilder } from '../../sanity';
+import styles from './Recipe.module.scss';
+import FilterSelect from '../../components/FilterSelect';
+import Ingredient from '../../components/Ingredient';
+import Button from '../../components/Button';
+import { Redirect } from 'react-router-dom';
 
 const query = `
   *[ _type == 'recipe' && slug.current == $slug ]
 `;
 
-const images = ["a", "b", "c", "d"];
+const images = ['a', 'b', 'c', 'd'];
 const Recipe = () => {
   const [checkedIngredients, setCheckedIngredients] = useState([]);
   const [toggledIngredients, setToggledIngredients] = useState(false);
@@ -67,11 +67,7 @@ const Recipe = () => {
           <img
             className={styles.img}
             alt={recipe.title}
-            src={imageUrlBuilder
-              .width(240)
-              .height(240)
-              .image(recipe.image)
-              .url()}
+            src={imageUrlBuilder.width(240).height(240).image(recipe.image).url()}
           />
           <div className={styles.recipeInfoDiv}>
             <div>
@@ -94,11 +90,7 @@ const Recipe = () => {
                   key={image + index}
                   className={styles.img}
                   alt={recipe.title}
-                  src={imageUrlBuilder
-                    .width(80)
-                    .height(80)
-                    .image(recipe.image)
-                    .url()}
+                  src={imageUrlBuilder.width(80).height(80).image(recipe.image).url()}
                 />
               ))}
             </div>
@@ -106,15 +98,12 @@ const Recipe = () => {
         </div>
         <div className={styles.recipeInstructions}>
           <h2>Instructions</h2>
-          <BlockContent
-            className={styles.blockContent}
-            blocks={recipe.instructions}
-          />
+          <BlockContent className={styles.blockContent} blocks={recipe.instructions} />
         </div>
       </div>
       <div
         className={`${styles.recipeIngredientsWrapper} ${
-          toggledIngredients ? styles.toggledIngredients : ""
+          toggledIngredients ? styles.toggledIngredients : ''
         }`}
       >
         <h2>Ingredients</h2>
@@ -127,10 +116,7 @@ const Recipe = () => {
           />
         ))}
       </div>
-      <div
-        className={styles.hiddenIngredientsWrapper}
-        onClick={toggleIngredients}
-      ></div>
+      <div className={styles.hiddenIngredientsWrapper} onClick={toggleIngredients}></div>
     </div>
   );
 };

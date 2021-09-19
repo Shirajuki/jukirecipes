@@ -1,36 +1,36 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
-import { sanity, imageUrlBuilder } from "../../sanity";
-import SearchBar from "../../components/SearchBar";
-import Button from "../../components/Button";
-import FilterSelect from "../../components/FilterSelect";
-import Spinner from "../../components/Spinner";
-import styles from "./RecipeList.module.scss";
-import { useStateValue } from "../../state";
+import React, { useEffect, useRef, useState } from 'react';
+import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
+import { sanity, imageUrlBuilder } from '../../sanity';
+import SearchBar from '../../components/SearchBar';
+import Button from '../../components/Button';
+import FilterSelect from '../../components/FilterSelect';
+import Spinner from '../../components/Spinner';
+import styles from './RecipeList.module.scss';
+import { useStateValue } from '../../state';
 
 const query = `
   *[ _type == 'recipe' ] { title, image, slug, tags, instructions, ingredients }
 `;
-const filterValueList = ["pasta", "noodle", "soup", "rice", "desert"];
+const filterValueList = ['pasta', 'noodle', 'soup', 'rice', 'desert'];
 const normalizeLower = (value) =>
   value
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase();
 const RecipeList = () => {
   // in this one line, data is fetched from sanity via the sanity client and
   // stored into application state via react-query!
-  const { data: recipes } = useQuery("recipeList", () => sanity.fetch(query));
+  const { data: recipes } = useQuery('recipeList', () => sanity.fetch(query));
   const [{ searchValue, searched, loading }, dispatch] = useStateValue();
   const setSearchValue = (value) => {
-    dispatch({ type: "SET_SEARCH_VALUE", payload: value });
+    dispatch({ type: 'SET_SEARCH_VALUE', payload: value });
   };
   const setSearched = (value) => {
-    dispatch({ type: "SET_SEARCHED", payload: value });
+    dispatch({ type: 'SET_SEARCHED', payload: value });
   };
   const setLoading = (value) => {
-    dispatch({ type: "SET_LOADING", payload: value });
+    dispatch({ type: 'SET_LOADING', payload: value });
   };
   const [filterValues, setFilterValues] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
@@ -40,7 +40,7 @@ const RecipeList = () => {
 
   useEffect(() => {
     const filterRecipes = (recipes, filters) => {
-      if (filters.length === 0 && searched === "") return recipes;
+      if (filters.length === 0 && searched === '') return recipes;
       else
         return recipes.filter((r) => {
           let bool = false;
@@ -48,10 +48,8 @@ const RecipeList = () => {
             if (filters.includes(r.tags[i].toLowerCase())) bool = true;
           }
           if (
-            !normalizeLower(r.title).includes(
-              normalizeLower(searchValueRef.current)
-            ) ||
-            (searchValueRef.current === "" && bool === false)
+            !normalizeLower(r.title).includes(normalizeLower(searchValueRef.current)) ||
+            (searchValueRef.current === '' && bool === false)
           )
             bool = false;
           else bool = true;
@@ -71,9 +69,9 @@ const RecipeList = () => {
       setLoading(true);
     }
     listRef?.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "nearest",
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'nearest',
     });
   };
   if (recipes) recipes.push(recipes[0]);
@@ -112,21 +110,14 @@ const RecipeList = () => {
                 <Spinner />
               ) : filteredRecipes.length > 0 ? (
                 filteredRecipes.map(
-                  (
-                    { title, slug, image, instructions, ingredients, tags },
-                    index
-                  ) => (
+                  ({ title, slug, image, instructions, ingredients, tags }, index) => (
                     <div key={slug.current + index}>
                       <Link className={styles.tile} to={`/${slug.current}`}>
                         <img
                           alt={title}
                           // use the sanity `imageUrlBuilder` to
                           // generate optimized images on the fly
-                          src={imageUrlBuilder
-                            .width(375)
-                            .height(375)
-                            .image(image)
-                            .url()}
+                          src={imageUrlBuilder.width(375).height(375).image(image).url()}
                           width="300px"
                           height="300px"
                         />
@@ -156,9 +147,7 @@ const RecipeList = () => {
                 )
               ) : (
                 <p className={styles.notFound}>
-                  <i>
-                    No recipes was found on this filter/search combination...
-                  </i>
+                  <i>No recipes was found on this filter/search combination...</i>
                 </p>
               )}
             </div>

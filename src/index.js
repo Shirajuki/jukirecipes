@@ -1,15 +1,15 @@
-import "modern-css-reset";
-import "./index.css";
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { persistQueryClient } from "react-query/persistQueryClient-experimental";
-import { createWebStoragePersistor } from "react-query/createWebStoragePersistor-experimental";
-import App from "./App";
-import { reducer, StateProvider } from "./state";
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-import reportWebVitals from "./reportWebVitals";
+import 'modern-css-reset';
+import './index.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { persistQueryClient } from 'react-query/persistQueryClient-experimental';
+import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental';
+import App from './App';
+import { reducer, StateProvider } from './state';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,7 +38,7 @@ ReactDOM.render(
       </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

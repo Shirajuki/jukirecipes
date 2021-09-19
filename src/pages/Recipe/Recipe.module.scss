@@ -60,7 +60,7 @@
   z-index: 2;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -88,7 +88,7 @@
         margin: 0 0 1rem 0;
       }
       &::before {
-        content: "Step " counter(instruction-counter);
+        content: 'Step ' counter(instruction-counter);
         color: var(--yellow-darker);
         font-size: 1.2rem;
         font-weight: bold;
@@ -178,7 +178,7 @@
     margin-top: 10px;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 50%;
       left: 50%;
