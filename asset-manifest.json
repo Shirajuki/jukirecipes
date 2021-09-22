@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/jukirecipes/static/css/main.5e042001.chunk.css",
-    "main.js": "/jukirecipes/static/js/main.dc5e74aa.chunk.js",
-    "main.js.map": "/jukirecipes/static/js/main.dc5e74aa.chunk.js.map",
+    "main.js": "/jukirecipes/static/js/main.6f362d16.chunk.js",
+    "main.js.map": "/jukirecipes/static/js/main.6f362d16.chunk.js.map",
     "runtime-main.js": "/jukirecipes/static/js/runtime-main.c69cd281.js",
     "runtime-main.js.map": "/jukirecipes/static/js/runtime-main.c69cd281.js.map",
     "static/css/2.db175afc.chunk.css": "/jukirecipes/static/css/2.db175afc.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.db175afc.chunk.css",
     "static/js/2.36ca8e98.chunk.js",
     "static/css/main.5e042001.chunk.css",
-    "static/js/main.dc5e74aa.chunk.js"
+    "static/js/main.6f362d16.chunk.js"
   ]
 }
