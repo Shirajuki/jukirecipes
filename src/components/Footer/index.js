@@ -3,7 +3,7 @@ import styles from './Footer.module.scss';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <p>Powered by Vercel + Sanity + React</p>
+      <p>Powered by GitHub Pages + Sanity + React</p>
     </footer>
   );
 };
