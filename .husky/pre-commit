@@ -1,0 +1,12 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+
+# Check Prettier standards
+npm run format
+
+# Check ESLint Standards
+npm run lint
+
+# Build
+npm run build

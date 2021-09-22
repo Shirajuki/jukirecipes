@@ -1,9 +1,14 @@
+/* eslint-env node */
 module.exports = {
   env: {
     browser: true,
     es2021: true,
   },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:prettier/recommended',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -18,5 +23,12 @@ module.exports = {
     quotes: ['warn', 'single'],
     semi: ['error', 'always'],
     'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+    'react/prop-types': 'off',
+    'react/no-unescaped-entities': 'off',
+  },
+  settings: {
+    react: {
+      version: '999.999.999',
+    },
   },
 };
