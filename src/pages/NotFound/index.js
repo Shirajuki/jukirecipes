@@ -9,7 +9,7 @@ const NotFound = () => {
       <h1>404</h1>
       <h2>I'm Sorry</h2>
       <p>We couldn't find the page you were looking for. </p>
-      <Link to={'/'}>
+      <Link to={'/jukirecipes/'}>
         <Button
           style={{ margin: 20, paddingLeft: 60, paddingRight: 60 }}
           onClick={() => void 0}
