@@ -74,7 +74,6 @@ const RecipeList = () => {
       inline: 'nearest',
     });
   };
-  if (recipes) recipes.push(recipes[0]);
   return (
     <div className={styles.listWrapper}>
       <div className={styles.heroWrapper}>
@@ -112,7 +111,7 @@ const RecipeList = () => {
                 filteredRecipes.map(
                   ({ title, slug, image, instructions, ingredients, tags }, index) => (
                     <div key={slug.current + index}>
-                      <Link className={styles.tile} to={`/${slug.current}`}>
+                      <Link className={styles.tile} to={`/jukirecipes/${slug.current}`}>
                         <img
                           alt={title}
                           // use the sanity `imageUrlBuilder` to

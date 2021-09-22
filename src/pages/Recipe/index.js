@@ -8,6 +8,7 @@ import FilterSelect from '../../components/FilterSelect';
 import Ingredient from '../../components/Ingredient';
 import Button from '../../components/Button';
 import { Redirect } from 'react-router-dom';
+import Spinner from '../../components/Spinner';
 
 const query = `
   *[ _type == 'recipe' && slug.current == $slug ]
@@ -42,14 +43,14 @@ const Recipe = () => {
 
   const [recipe] = data ?? [];
   if (!recipe) {
-    return <h1>Loading…</h1>;
+    return <Spinner />;
   }
   const ingredients = recipe.ingredients.map((r) => r.children[0].text);
 
   return (
     <div className={styles.recipeWrapper}>
       <div className={styles.recipeInfoWrapper}>
-        <Link className={styles.returnButton} to="/">
+        <Link className={styles.returnButton} to="/jukirecipes/">
           <svg
             width="39"
             height="20"

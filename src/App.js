@@ -54,8 +54,8 @@ const App = () => {
         <div className={styles.container}>
           <Switch>
             <Route component={RecipeList} path="/jukirecipes/" exact />
-            <Route component={NotFound} path="/jukirecipes404" />
-            <Route component={Recipe} path="/jukirecipes:slug" />
+            <Route component={NotFound} path="/jukirecipes/404" />
+            <Route component={Recipe} path="/jukirecipes/:slug" />
           </Switch>
         </div>
       </main>
