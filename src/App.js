@@ -32,7 +32,6 @@ const App = () => {
       const isShow = currPos.y < -370;
       if (isShow && location.pathname === '/jukirecipes/') setHideOnScroll(false);
       else setHideOnScroll(true);
-      console.log(hideOnScroll);
     },
     [hideOnScroll, location.pathname]
   );

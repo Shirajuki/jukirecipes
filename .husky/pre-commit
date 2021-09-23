@@ -7,6 +7,3 @@ npm run format
 
 # Check ESLint Standards
 npm run lint
-
-# Build
-npm run build
