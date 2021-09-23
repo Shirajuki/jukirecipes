@@ -165,11 +165,15 @@
               cursor: pointer;
               margin: 10px;
               max-width: 150px;
+              min-width: 50px;
             }
           }
         }
       }
     }
+  }
+  .returnButton {
+    transform: translate(-20px, -20px);
   }
   .recipeInstructions {
     position: relative;

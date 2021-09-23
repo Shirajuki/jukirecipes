@@ -29,9 +29,10 @@ const App = () => {
   // Scrollposition hook
   useScrollPosition(
     ({ prevPos: _, currPos }) => {
-      const isShow = currPos.y < -400;
-      if (isShow && location.pathname === '/') setHideOnScroll(false);
+      const isShow = currPos.y < -370;
+      if (isShow && location.pathname === '/jukirecipes/') setHideOnScroll(false);
       else setHideOnScroll(true);
+      console.log(hideOnScroll);
     },
     [hideOnScroll, location.pathname]
   );
@@ -39,13 +40,9 @@ const App = () => {
     <div className={darkmode ? 'darkmode' : ''}>
       <Header
         hidden={hideOnScroll}
-        style={{ display: location.pathname === '/' ? 'flex' : 'none' }}
+        style={{ display: location.pathname === '/jukirecipes/' ? 'flex' : 'none' }}
       />
-      <div
-        className={`${styles.themeButtonWrapper} ${
-          hideOnScroll && location.pathname === '/' ? '' : styles.hidden
-        }`}
-      >
+      <div className={`${styles.themeButtonWrapper}`}>
         <ThemeChangeButton />
       </div>
       <Wave style={{ top: 165, right: 0 }} />

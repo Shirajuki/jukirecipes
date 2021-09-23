@@ -110,7 +110,7 @@ const RecipeList = () => {
               ) : filteredRecipes.length > 0 ? (
                 filteredRecipes.map(
                   ({ title, slug, image, instructions, ingredients, tags }, index) => (
-                    <div key={slug.current + index}>
+                    <div key={slug.current + index} className={styles.tileTileWrapper}>
                       <Link className={styles.tile} to={`/jukirecipes/${slug.current}`}>
                         <img
                           alt={title}

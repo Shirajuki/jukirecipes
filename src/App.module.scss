@@ -11,7 +11,7 @@ body {
   margin: 0 auto;
 }
 .themeButtonWrapper {
-  position: fixed;
+  position: absolute;
   top: 20px;
   z-index: 9001;
   width: 100vw;
@@ -23,8 +23,8 @@ body {
   }
   button {
     position: absolute;
-    right: 35px;
-    top: 20px;
+    right: 25px;
+    top: 25px;
   }
 }
 @media only screen and (max-width: 600px) {

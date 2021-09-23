@@ -63,9 +63,3 @@ code {
 p {
   color: var(--text-darker);
 }
-
-@media only screen and (max-width: 420px) {
-  body {
-    zoom: 0.7;
-  }
-}
