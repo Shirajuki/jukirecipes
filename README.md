@@ -7,6 +7,10 @@
 <h3 align="center">Jukirecipes</h3>
 <p align="center">A Recipe book PWA React application to organize and save food recipes using Sanity CMS c:</p>
 
+## Try the application here
+
+https://shirajuki.js.org/jukirecipes
+
 ## Figma design
 
 https://www.figma.com/file/ptIEWo50Ftxj3I791KzNSA/Jukirecipes?node-id=0%3A1
