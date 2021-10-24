@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/jukirecipes/static/css/main.3fdb4efc.chunk.css",
-    "main.js": "/jukirecipes/static/js/main.8c220d92.chunk.js",
-    "main.js.map": "/jukirecipes/static/js/main.8c220d92.chunk.js.map",
+    "main.css": "/jukirecipes/static/css/main.be18b7d5.chunk.css",
+    "main.js": "/jukirecipes/static/js/main.64856be3.chunk.js",
+    "main.js.map": "/jukirecipes/static/js/main.64856be3.chunk.js.map",
     "runtime-main.js": "/jukirecipes/static/js/runtime-main.c69cd281.js",
     "runtime-main.js.map": "/jukirecipes/static/js/runtime-main.c69cd281.js.map",
     "static/css/2.db175afc.chunk.css": "/jukirecipes/static/css/2.db175afc.chunk.css",
@@ -14,14 +14,14 @@
     "service-worker.js": "/jukirecipes/service-worker.js",
     "service-worker.js.map": "/jukirecipes/service-worker.js.map",
     "static/css/2.db175afc.chunk.css.map": "/jukirecipes/static/css/2.db175afc.chunk.css.map",
-    "static/css/main.3fdb4efc.chunk.css.map": "/jukirecipes/static/css/main.3fdb4efc.chunk.css.map",
+    "static/css/main.be18b7d5.chunk.css.map": "/jukirecipes/static/css/main.be18b7d5.chunk.css.map",
     "static/js/2.8e2c8a9e.chunk.js.LICENSE.txt": "/jukirecipes/static/js/2.8e2c8a9e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c69cd281.js",
     "static/css/2.db175afc.chunk.css",
     "static/js/2.8e2c8a9e.chunk.js",
-    "static/css/main.3fdb4efc.chunk.css",
-    "static/js/main.8c220d92.chunk.js"
+    "static/css/main.be18b7d5.chunk.css",
+    "static/js/main.64856be3.chunk.js"
   ]
 }
