@@ -6,4 +6,6 @@
   margin-top: 20px;
   box-shadow: var(--box-shadow);
   background-color: var(--box-background);
+  position: relative;
+  z-index: 1000;
 }

@@ -12,7 +12,7 @@ import { useStateValue } from '../../state';
 const query = `
   *[ _type == 'recipe' ] { title, image, slug, tags, instructions, ingredients }
 `;
-const filterValueList = ['pasta', 'noodle', 'soup', 'rice', 'desert'];
+const filterValueList = ['pasta', 'noodle', 'soup', 'rice', 'vegan', 'desert'];
 const normalizeLower = (value) =>
   value
     .normalize('NFKD')

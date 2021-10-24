@@ -25,7 +25,7 @@
   --blur-filter: blur(4px);
   --blur-border: 1px solid rgba(255, 255, 255, 0.18);
   --text-light: #ffffff;
-  --text-dark: rgba(0, 0, 0, 0.7);
+  --text-dark: rgb(10, 10, 10);
   --text-darker: #000000;
   --title: #000000;
   --transparent: rgba(0, 0, 0, 0);
@@ -39,7 +39,7 @@
   --search-border: 1px solid #404040;
   --search-background: #404040;
   --ingredient-border-color: #f9f9f9;
-  --blur-background: rgba(23, 23, 23, 0.25);
+  --blur-background: rgba(23, 23, 23, 0.35);
   --blur-box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.15);
   --blur-border: 1px solid rgba(23, 23, 23, 0.18);
   --text-light: #ffffff;
@@ -48,6 +48,9 @@
   --title: #e6e6e6;
   --transparent: rgba(0, 0, 0, 0);
   background-color: var(--background-dark);
+}
+html {
+  overflow-x: hidden;
 }
 body {
   scroll-behavior: smooth;
