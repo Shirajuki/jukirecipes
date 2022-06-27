@@ -4,3 +4,6 @@
   // here will be ignored.
   "include": ["./node_modules/@sanity/base/types/**/*.ts", "./**/*.ts", "./**/*.tsx"]
 }
+iMissTheRage: {
+    "I can't see a damn thing if it ain't guap"
+  },
